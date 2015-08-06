@@ -10,7 +10,7 @@
 
     <div class="container">
         <h1>Find a Car!</h1>
-        <form action="/car">
+        <form action="/car_results">
             <div class="form-group">
                 <label for="price">Enter Maximum Price:</label>
                 <input id="price" name="price" class="form-control" type="number">
@@ -59,6 +59,7 @@
           <h3>Make: {{ car.getModel }}</h3>
           <p>$ {{ car.getPrice }}</p>
           <p> {{ car.getMiles }} Miles</p>
+
           <p><img src= {{ car.getPhoto }} width= 35%></p>
           {% endfor %}
         </ul>

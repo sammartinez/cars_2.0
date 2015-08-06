@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Results</title>
+  </head>
+  <body>
+
+      {% if search_data is not empty %}
+
+      {% for result in search_data %}
+
+        <h3> Make: {{ result.getModel }}</h3>
+        <p><img src= {{ result.getPhoto }} width= 35%></p>
+        <p>$ {{ result.getPrice }}</p>
+        <p>{{ result.getMiles }} Miles</p>
+
+        {% endfor %}
+      {% endif %}
+      <p><a href='/'>Home</a></p>
+  </body>
+</html>
