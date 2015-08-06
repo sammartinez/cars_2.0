@@ -4,6 +4,10 @@
     <title>Find a Car</title>
 </head>
 <body>
+  <form action = '/delete_cars' method = 'post'>
+        <button type='submit'>Delete Your Cars</button>
+      </form>
+
     <div class="container">
         <h1>Find a Car!</h1>
         <form action="/car">
@@ -19,15 +23,7 @@
             <button type="submit" class="btn-success">Submit</button>
         </form>
 
-        {# {% if cars is not empty %}
-        <p>Here are your results:</p>
 
-        <ul>
-          {% for cars_matching_search in car %}
-          <li>{{ car.getModel }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %} #}
 
 
         <form action ="/cars" method="post">
@@ -55,6 +51,18 @@
 
         </form>
 
+         {% if cars is not empty %}
+        <p>Here are your results:</p>
+
+        <ul>
+          {% for car in cars %}
+          <h3>Make: {{ car.getModel }}</h3>
+          <p>$ {{ car.getPrice }}</p>
+          <p> {{ car.getMiles }} Miles</p>
+          <p><img src= {{ car.getPhoto }} width= 35%></p>
+          {% endfor %}
+        </ul>
+        {% endif %}
     </div>
 
 

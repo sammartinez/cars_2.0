@@ -55,6 +55,13 @@ class Car
     {
       return $_SESSION['list_of_cars'];
     }
+
+    //Static Method - Deletes Tasks
+      static function deleteAll()
+      {
+          $_SESSION['list_of_cars'] = array();
+      }
+
 }
 
 ?>

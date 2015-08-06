@@ -29,13 +29,18 @@
     //Cars Post
 
     $app->post('/cars', function() use ($app) {
-      $car = new Car($_POST['carModel'], $_POST['carPhoto'], $_POST['carPrice'], $_POST['carMiles']);
+      $car = new Car($_POST['carModel'], $_POST['carPrice'], $_POST['carMiles'], $_POST['carPhoto']);
       $car->save();
 
 
       return $app['twig']->render('create_cars.html.twig', array('newcar' => $car));
       });
 
+      //Cars Post Delete
+      $app->post("/delete_cars", function() use ($app) {
+        Car::deleteAll();
+        return $app['twig']->render('delete_cars.html.twig');
+      });
 
       // $first_car = new Car("2014 Porsche 911", 114991, 7864, "porsche.jpg");
       // $second_car = new Car("2011 Ford F450", 55995, 14241, "ford.jpg");
