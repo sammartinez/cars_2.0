@@ -45,6 +45,16 @@ class Car
     {
         return $this->photo;
     }
+
+    function save()
+    {
+      array_push($_SESSION['list_of_cars'], $this);
+    }
+
+    static function getAll()
+    {
+      return $_SESSION['list_of_cars'];
+    }
 }
 
 ?>

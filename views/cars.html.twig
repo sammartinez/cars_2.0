@@ -18,6 +18,45 @@
 
             <button type="submit" class="btn-success">Submit</button>
         </form>
+
+        {# {% if cars is not empty %}
+        <p>Here are your results:</p>
+
+        <ul>
+          {% for cars_matching_search in car %}
+          <li>{{ car.getModel }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} #}
+
+
+        <form action ="/cars" method="post">
+          <div class="form-group">
+          <label for="carModel">Enter your car Model</label>
+          <input type="text" name="carModel" id="carModel">
+        </div>
+
+        <div class="form-group">
+          <label for="carPhoto">Paste a URL of your car here</label>
+          <input type="text" name="carPhoto" id="carPhoto">
+        </div>
+
+        <div class="form-group">
+          <label for="carPrice">Enter your desired Price</label>
+          <input type="number" name="carPrice" id="carPrice">
+        </div>
+
+        <div class="form-group">
+          <label for="carMiles">Enter your Miles (be honest)</label>
+          <input type="number" name="carMiles" id="carMiles">
+        </div>
+
+          <button type="submit" class="btn-success">Go!</button>
+
+        </form>
+
     </div>
+
+
 </body>
 </html>
