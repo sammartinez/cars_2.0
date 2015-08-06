@@ -4,31 +4,14 @@
 
     $app = new Silex\Application();
 
-    $app->get('/', function() {
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
+      'twig.path' => __DIR__.'/../views'
+    ));
 
-      return "<html>
-      <head>
-          <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-          <title>Find a Car</title>
-      </head>
-      <body>
-          <div class='container'>
-              <h1>Find a Car!</h1>
-              <form action='/car'>
-                  <div class='form-group'>
-                      <label for='price'>Enter Maximum Price:</label>
-                      <input id='price' name='price' class='form-control' type='number'>
-                  </div>
-                  <div class='form-group'>
-                    <label for='miles'>Enter Maximum Miles: </label>
-                    <input id='miles' name='miles' class='form-control' type='number'>
-                  </div>
+    $app->get('/', function() use ($app) {
 
-                  <button type='submit' class='btn-success'>Submit</button>
-              </form>
-          </div>
-      </body>
-      </html>";
+      return $app['twig']->render('cars.html.twig');
+
     });
 
     $app->get('/car', function(){
@@ -65,7 +48,7 @@
 
       return $output;
 
-      });
+    });
 
     return $app;
 ?>
